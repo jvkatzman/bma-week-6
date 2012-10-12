@@ -5,16 +5,11 @@ import java.util.Date;
 
 
 public class Assignment {
-
-	static String[] values  = {"a","b","c"};
-	
-	// test different versions of index
-	static int index = 2;  // first index is at 0,  last index is (length - 1)
-	//static int index = 0;
-	//static int index = 9;
 	
 	public static void main(String[] args) {
-
+		//The purpose of this assignment is to review inheritance
+		
+		
 		 Task tasks[] = new Task[5]; 
 		 // blank out array
 		 for (int i = 0; i < tasks.length; i++) {
@@ -31,34 +26,9 @@ public class Assignment {
 			 System.out.println("\nShow Basic Data: " + i );
 			 System.out.println(tasks[i].ShowBasicData());
 			 System.out.println("\nTo String Data: ");
-			 System.out.println(tasks[i].toString());
-			 	
-		}
-		 
-		 /*
-		Task task0 = new Task();
-		System.out.println(task0.toString());
-		
-		Task task1 = new Task(dtDate, strDescription, strPersonName);
-		System.out.println(task1.toString());
-		*/
-		 
+			 System.out.println(tasks[i].toString());	 	
+		}		 
 	}//main
-	
-	
-	// Assignment homework week 5 - Item 2-2
-	 static String getElement(String[] values, int index){
-		 // check if index is less than zero, array has no elements 
-		 // and index greater than array element length
-		if((index < 0 ) || (values.length == 0 ) || (index >= values.length))  {
-			System.out.println("Index out of range");
-			return null;
-		}//index check
-		else{
-		System.out.println(values[index]);
-		return values[index];
-		}
-	}//getElement
 	
 	
 }//Assignment
@@ -72,7 +42,6 @@ abstract class Task {
 	 private String itemDescription;
 	 
 	 Task(){
-		 //System.out.println("No arguments");
 		 itemDate=null;
 		 itemDescription="";		 
 	 }// no arguments
@@ -186,16 +155,12 @@ class TaskExtended extends TaskBasic{
 	 Date getItemDueDate (){ return itemDueDate;}
 	 void setItemDueDate(Date duedt){itemDueDate = duedt;}
 
-	
-	 // Boolean itemIsComplete;
 	 Boolean getIsComplete (){ return itemIsComplete;}
 	 void setItemIsComplete(Boolean blIsComp){itemIsComplete = blIsComp;}
 
-	 // String itemTitle;
 	 String getItemTitle (){ return itemTitle;}
 	 void setItemTitle (String strItemTitle){itemTitle=strItemTitle;}
 	 
-	 // String itemComment;
 	 String getItemComment (){ return itemComment;}
 	 void setItemComment (String strItemComment){itemComment=strItemComment;}
 
@@ -203,7 +168,6 @@ class TaskExtended extends TaskBasic{
 			DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
 			//String strDate = dateformat.format(itemDate);
 			String strDate;
-			//= dateformat.format(itemDate);
 			 Date itemDate = getItemDate();
 			if(itemDate != null){
 				strDate = dateformat.format(itemDate);
@@ -229,8 +193,6 @@ class TaskExtended extends TaskBasic{
 				stritemDueDate = "";
 			}	
 			
-			//private Boolean itemIsComplete;
-
 			Boolean itemIsComplete = getIsComplete();
 			String strIsComplete ;
 			if(itemIsComplete){
@@ -275,9 +237,7 @@ class TaskExtended extends TaskBasic{
 				}else{
 					stritemDueDate = "";
 				}	
-				
-				//private Boolean itemIsComplete;
-
+			
 				Boolean itemIsComplete = getIsComplete();
 				String strIsComplete ;
 				if(itemIsComplete){
@@ -336,17 +296,12 @@ class TaskDependents extends TaskExtended{
 		 
 	 }// all items
 	
-
-	 // String itemDependents;
 	 String getItemDependents (){ return itemDependents;}
 	 void setItemDependents (String strItemDependents){itemDependents=strItemDependents;}
 	 
-	 
-	 // Boolean itemIsComplete;
 	 Boolean getHasDependents (){ return itemHasDependents;}
 	 void setItemHasDependents(Boolean blHasDependents){itemHasDependents = blHasDependents;}
 
-	 // Boolean itemIsComplete;
 	 Boolean getIsDependentComplete (){ return itemIsDependentComplete;}
 	 void setItemIsDependentComplete(Boolean blIsDependentComplete){itemIsDependentComplete = blIsDependentComplete;}
 
@@ -354,7 +309,6 @@ class TaskDependents extends TaskExtended{
 			DateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");
 			//String strDate = dateformat.format(itemDate);
 			String strDate;
-			//= dateformat.format(itemDate);
 			 Date itemDate = getItemDate();
 			if(itemDate != null){
 				strDate = dateformat.format(itemDate);
@@ -380,7 +334,6 @@ class TaskDependents extends TaskExtended{
 				stritemDueDate = "";
 			}	
 			
-			//private Boolean itemIsComplete;
 			Boolean itemIsComplete = getIsComplete();
 			String strIsComplete ;
 			if(itemIsComplete){
@@ -446,9 +399,7 @@ class TaskDependents extends TaskExtended{
 				}else{
 					stritemDueDate = "";
 				}	
-				
-				//private Boolean itemIsComplete;
-
+			
 				Boolean itemIsComplete = getIsComplete();
 				String strIsComplete ;
 				if(itemIsComplete){
